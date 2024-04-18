@@ -40,7 +40,8 @@ function findMostRecentBook(books) {
 
 function findIntersection(setA, setB) {
   // 🪲 Bug: Incorrect logic
-  const intersection = new Set([...setA]);
+  const intersection = new Set([...setA].filter(concept => setB.has(concept))); // used the spread operator (...) to convert the sets to arrays. the findIntersection function will now use set operations and array methods to find the intersection between the two input sets, ensuring that only the elements present in both sets will be/are included in the output.
+  // implemented an array.prototype.filter() method as the filter() method will iterate through each element of the array and apply the provided callback function to each element. If the callback function returns true, the element will get included in the new array that the filter() creates.
   return intersection;
 }
 
