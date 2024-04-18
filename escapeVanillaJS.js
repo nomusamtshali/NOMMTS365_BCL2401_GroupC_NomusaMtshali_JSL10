@@ -23,17 +23,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
  // 🪲 Bug: Asynchronous function ?
  document.getElementById("solveRoom3").addEventListener("click", async () => { // added the async keyword to the event listener function in order to turn the function into an asynchronous function.
-    fetch('directions.json') 
-        .then(response => response.json())
-        .then(directions => {
-            navigateLabyrinth(directions)
-                .then(message => {
-                    // 🪲 Bug: Incorrect method
-                    document.getElementById("room3Result").innerHTML = message;
+    
+    const response = await fetch('directions.json'); 
+    const directions = await response.json();
+    const message = await navigateLabyrinth(directions); // replaced the .then() methods with the await keywords in order to take advantage of the async/await syntax.
+
+    // 🪲 Bug: Incorrect method
+    document.getElementById("room3Result").innerHTML = message;
                 });
         });
-});
-});
 
 function findMostRecentBook(books) {
   // 🪲 Bug: Logic error
