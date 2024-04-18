@@ -25,14 +25,13 @@ document.addEventListener("DOMContentLoaded", () => {
      document.getElementById("solveRoom3").addEventListener("click", () => {
         fetch('directions.json') 
             .then(response => response.json())
-            .then(directions => await {navigateLabyrinth(directions) 
-                    .then(message => {
+            .then(directions => { 
+                const message = await navigateLabyrinth(directions); // used the correct syntax that goes with using the 'await' keyword.
                         // 🪲 Bug: Incorrect method
                         document.getElementById("room3Result").innerHTML = message;
                     });
             });
     });
-});
 
 function findMostRecentBook(books) {
   // 🪲 Bug: Logic error
