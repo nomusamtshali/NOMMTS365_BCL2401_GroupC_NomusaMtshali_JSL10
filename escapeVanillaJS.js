@@ -21,17 +21,19 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("room2Result").textContent = `The code to unlock the door is: ${Array.from(commonConcepts).join(", ")}`;
   });
 
-     // 🪲 Bug: Asynchronous function ?
-     document.getElementById("solveRoom3").addEventListener("click", () => {
-        fetch('directions.json') 
-            .then(response => response.json())
-            .then(directions => { 
-                const message = await navigateLabyrinth(directions); // used the correct syntax that goes with using the 'await' keyword.
-                        // 🪲 Bug: Incorrect method
-                        document.getElementById("room3Result").textContent = message; // used .textContent in order to return the complete text content, including the hidden text (message).
-                    });
-            });
-    });
+ // 🪲 Bug: Asynchronous function ?
+ document.getElementById("solveRoom3").addEventListener("click", () => {
+    fetch('directions.json') 
+        .then(response => response.json())
+        .then(directions => {
+            navigateLabyrinth(directions)
+                .then(message => {
+                    // 🪲 Bug: Incorrect method
+                    document.getElementById("room3Result").innerHTML = message;
+                });
+        });
+});
+});
 
 function findMostRecentBook(books) {
   // 🪲 Bug: Logic error
