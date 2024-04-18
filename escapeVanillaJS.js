@@ -46,10 +46,11 @@ function findIntersection(setA, setB) {
 }
 
 async function navigateLabyrinth(directions) {
-  for (let direction of directions) {
+  for (let direction of directions) { // this loop iterates through the directions array and logs each step to the console.
     // 🪲 Bug: No delay
-    new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log(`Navigating: ${direction.step}`);
+  await new Promise((resolve) => setTimeout(resolve, 1000)); // the await keyword will pause the execution of the function until the Promise resolves. this means that the function will wait for 1 second before moving on to the next line.
+    console.log(`Navigating: ${direction.step}`); // the (current) step of the labyrinth navigation will be logged to the console.
   }
   return "Congratulations! You've mastered the essentials of Vanilla JavaScript. Welcome to the world of React, where you'll build powerful and dynamic web applications. Let's dive in!";
-}
+} // once the loop finishes iterating through all the elements of directions, the function will return a string, which is the final message displayed.
+ 
