@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const message = await navigateLabyrinth(directions); // replaced the .then() methods with the await keywords in order to take advantage of the async/await syntax.
 
     // 🪲 Bug: Incorrect method
-    document.getElementById("room3Result").innerHTML = message;
+    document.getElementById("room3Result").textContent = message; // used .textContent in order to return the complete text content, including the hidden text (message).
                 });
         });
 
