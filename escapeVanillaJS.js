@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(directions => { 
                 const message = await navigateLabyrinth(directions); // used the correct syntax that goes with using the 'await' keyword.
                         // 🪲 Bug: Incorrect method
-                        document.getElementById("room3Result").innerHTML = message;
+                        document.getElementById("room3Result").textContent = message; // used .textContent in order to return the complete text content, including the hidden text (message).
                     });
             });
     });
