@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
  // 🪲 Bug: Asynchronous function ?
- document.getElementById("solveRoom3").addEventListener("click", () => {
+ document.getElementById("solveRoom3").addEventListener("click", async () => { // added the async keyword to the event listener function in order to turn the function into an asynchronous function.
     fetch('directions.json') 
         .then(response => response.json())
         .then(directions => {
