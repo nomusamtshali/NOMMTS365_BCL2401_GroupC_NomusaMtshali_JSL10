@@ -22,11 +22,11 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
  // 🪲 Bug: Asynchronous function ?
- document.getElementById("solveRoom3").addEventListener("click", async () => { // added the async keyword to the event listener function in order to turn the function into an asynchronous function.
+ document.getElementById("solveRoom3").addEventListener("click", async () => { // added 'async' to the event listener function in order to turn the function into an asynchronous function as I want to use the 'await' keyword inside the function.
     
     const response = await fetch('directions.json'); 
     const directions = await response.json();
-    const message = await navigateLabyrinth(directions); // replaced the .then() methods with the await keywords in order to take advantage of the async/await syntax.
+    const message = await navigateLabyrinth(directions); // replaced the .then() methods with the await keywords in order to take advantage of the async/await syntax. this will allow the function to wait for the Promise to resolve before moving on to the next line.
 
     // 🪲 Bug: Incorrect method
     document.getElementById("room3Result").textContent = message; // used .textContent in order to return the complete text content, including the hidden text (message).
